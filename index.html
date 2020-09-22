@@ -6,7 +6,43 @@
     <title>Twisted Vision RogueLike</title>
   </head>
   <body>
+    <style>
+      canvas {
+        outline: 1px soid white;
+      }
+
+      body {
+        background-color: rgb(0, 41, 130);
+        text-align: center;
+        margin-top: 50px;
+      }
+    </style>
     <canvas></canvas>
-    <script></script>
+    <script src="js/game.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/tile.js"></script>
+    <script src="js/monster.js"></script>
+    <script src="js/util.js"></script>
+    <script src="js/spell.js"></script>
+    <script>
+      canvas = document.querySelector("canvas");
+      ctx = canvas.getContext("2d");
+
+      x = y = 0;
+
+      document.querySelector("html").onkeypress = function (e) {
+        if (e.key == "w") y--;
+        if (e.key == "s") y++;
+        if (e.key == "a") x--;
+        if (e.key == "d") x++;
+      };
+
+      function draw() {
+        ctx.clearRect(0, 0, 1000, 1000);
+        ctx.fillRect(x * 20, y * 20, 20, 20);
+      }
+
+      setInterval(draw, 15);
+    </script>
   </body>
 </html>
