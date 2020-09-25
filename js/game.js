@@ -59,6 +59,8 @@ function tick() {
       monsters.splice(k, 1);
     }
   }
+  player.update();
+
   if (player.dead) {
     addScore(score, false);
     gameState = "dead";
@@ -92,13 +94,16 @@ function startGame() {
   gameState = "running";
 }
 
-function startLevel(playerHp) {
+function startLevel(playerHp, playerSpells) {
   spawnRate = 15;
   spawnCounter = spawnRate;
   generateLevel();
 
   player = new Player(randomPassableTile());
   player.hp = playerHp;
+  if (playerSpells) {
+    player.spells = playerSpells;
+  }
 
   randomPassableTile().replace(Exit);
 }
