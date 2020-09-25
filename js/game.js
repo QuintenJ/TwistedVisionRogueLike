@@ -41,12 +41,12 @@ function draw() {
 
     player.draw();
 
-    drawText("Level: " + level, 30, false, 40, "violet");
-    drawText("Score: " + score, 30, false, 70, "violet");
+    drawText("Level: " + level, 30, false, 40, "WHITESMOKE");
+    drawText("Score: " + score, 30, false, 70, "WHITESMOKE");
 
     for (let i = 0; i < player.spells.length; i++) {
       let spellText = i + 1 + ") " + (player.spells[i] || "");
-      drawText(spellText, 20, false, 110 + i * 40, "aqua");
+      drawText(spellText, 20, false, 110 + i * 40, "CHOCOLATE");
     }
   }
 }
@@ -175,7 +175,7 @@ function drawScores() {
         18,
         true,
         canvas.height / 2 + 24 + i * 24,
-        i == 0 ? "aqua" : "violet"
+        i == 0 ? "CHOCOLATE" : "WHITESMOKE"
       );
     }
   }
